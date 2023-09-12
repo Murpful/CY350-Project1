@@ -1,8 +1,8 @@
 import socket
 import time
 
-serverName = 'localhost'
-serverPort = 12000
+serverName = input("Enter the server ip address: ")
+serverPort = int(input("Enter the server port number: "))
 
 #set up the socket
 clientSocket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
