@@ -1,13 +1,11 @@
 import socket
 import time
-
 serverName = input("Enter the server ip address: ")
 serverPort = int(input("Enter the server port number: "))
-
 #set up the socket
 clientSocket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-clientSocket.settimeout(1)
-clientSocket.connect((serverName, serverPort))
+clientSocket.settimeout(1) #used this sorce to learn how to set a timeout https://stackoverflow.com/questions/34371096/how-to-use-python-socket-settimeout-properly
+clientSocket.connect((serverName, serverPort)) 
 #create time string in the format day_of_month hrs:min:sec abbreviated month name year
 numberOfPings = 10
 numberOfResponses = 0
@@ -37,7 +35,7 @@ for i in range(numberOfPings):
         print("Ping " + str(i+1) + " No Response")
     #delay for 1 second
     time.sleep(1)
-#close the connection
+#close the connection and print the statistics
 successRate = numberOfResponses/numberOfPings
 successRate = successRate*100
 AverageRTTime = AverageRTTime/numberOfResponses
